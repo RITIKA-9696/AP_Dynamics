@@ -99,40 +99,61 @@ function resetAutoplay() {
 }
 
 // ============================================
-// MEGA MENU FUNCTIONALITY - ENHANCED
+// MEGA MENU FUNCTIONALITY - ENHANCED FOR MOBILE
 // ============================================
 
 function initMegaMenu() {
   const megaMenuItems = document.querySelectorAll('.mega-menu-item');
+  const isMobile = window.innerWidth < 1024;
 
   megaMenuItems.forEach(item => {
     const trigger = item.querySelector('.products-trigger');
     const menu = item.querySelector('.mega-menu');
 
     if (trigger && menu) {
-      // Hover to open
-      item.addEventListener('mouseenter', function() {
-        openMegaMenu(menu);
-      });
-
-      // Click to toggle on touch devices
-      trigger.addEventListener('click', function(e) {
-        if (window.innerWidth < 1024) {
+      if (isMobile) {
+        // Mobile: Click to toggle
+        trigger.addEventListener('click', function(e) {
           e.preventDefault();
-          menu.classList.toggle('active');
-        }
-      });
+          e.stopPropagation();
+          
+          // Close other menus
+          document.querySelectorAll('.mega-menu').forEach(m => {
+            if (m !== menu) {
+              closeMegaMenu(m);
+            }
+          });
+
+          // Toggle current menu
+          const isOpen = menu.style.visibility === 'visible';
+          if (isOpen) {
+            closeMegaMenu(menu);
+          } else {
+            openMegaMenu(menu);
+          }
+          
+          console.log('📱 Mobile menu toggled');
+        });
+      } else {
+        // Desktop: Hover to open
+        item.addEventListener('mouseenter', function() {
+          openMegaMenu(menu);
+        });
+
+        item.addEventListener('mouseleave', function() {
+          closeMegaMenu(menu);
+        });
+      }
     }
   });
 
   // Close menu when clicking outside
   document.addEventListener('click', function(e) {
-    const megaItems = document.querySelectorAll('.mega-menu-item');
-    megaItems.forEach(item => {
-      if (!item.contains(e.target)) {
-        closeMegaMenu(item.querySelector('.mega-menu'));
-      }
-    });
+    if (!e.target.closest('.mega-menu-item') && !e.target.closest('.mega-menu')) {
+      document.querySelectorAll('.mega-menu').forEach(menu => {
+        closeMegaMenu(menu);
+      });
+    }
   });
 
   // Close on Escape key
@@ -140,6 +161,14 @@ function initMegaMenu() {
     if (e.key === 'Escape') {
       const menus = document.querySelectorAll('.mega-menu');
       menus.forEach(menu => closeMegaMenu(menu));
+    }
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    const newIsMobile = window.innerWidth < 1024;
+    if (newIsMobile !== isMobile) {
+      location.reload(); // Reload to reinitialize
     }
   });
 }
