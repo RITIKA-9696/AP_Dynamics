@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AP DYNAMICS - Industrial Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body class="bg-white">
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="container mx-auto px-4 py-2.5">
+      <div class="flex justify-between items-center">
+
+        <!-- Logo -->
+        <div class="logo">
+            AP DYNAMICS
+        </div>
+
+        <!-- Desktop Nav -->
+        <ul class="hidden lg:flex space-x-6 items-center text-xs font-medium">
+          <li><a href="#home" class="nav-item">Home</a></li>
+
+          <!-- PRODUCTS -->
+          <li class="relative mega-menu-item group">
+            <a href="#products" class="nav-item flex items-center">
+              Products
+              <svg class="w-3 h-3 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+
+            <!-- Products Dropdown -->
+            <div class="mega-menu">
+              <div class="container mx-auto px-4 py-6">
+                <div class="grid grid-cols-4 gap-6">
+                  <!-- Marine Column -->
+                  <div class="mega-menu-column">
+                    <div class="mega-menu-title">LNS</div>
+                    <a href="#" class="mega-menu-link">Propulsion Engines</a>
+                    <a href="#" class="mega-menu-link">Auxiliary Engines</a>
+                    <a href="#" class="mega-menu-link">Marine Gensets</a>
+                    <a href="#" class="mega-menu-link">Gearboxes</a>
+                  </div>
+
+                  <!-- On Highway Column -->
+                  <div class="mega-menu-column">
+                    <div class="mega-menu-title">LABA7</div>
+                    <a href="#" class="mega-menu-link">Trucks</a>
+                    <a href="#" class="mega-menu-link">Buses</a>
+                    <a href="#" class="mega-menu-link">Electric Buses</a>
+                    <a href="#" class="mega-menu-link">Diesel Engines</a>
+                  </div>
+
+                  <!-- Off Highway Column -->
+                  <div class="mega-menu-column">
+                    <div class="mega-menu-title">Cry Sound</div>
+                    <a href="#" class="mega-menu-link">Construction</a>
+                    <a href="#" class="mega-menu-link">Mining</a>
+                    <a href="#" class="mega-menu-link">Agriculture</a>
+                    <a href="#" class="mega-menu-link">Axles</a>
+                  </div>
+
+                  
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="#about" class="nav-item">About</a></li>
+          <li><a href="#contact" class="nav-item">Contact</a></li>
+          <li><a href="#" class="nav-cta">Enquiry</a></li>
+        </ul>
+
+        <!-- Mobile Menu Button -->
+        <button class="lg:hidden text-dark" id="mobileMenuBtn">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Carousel Section -->
+  <section id="home" class="carousel-wrapper">
+    <div class="carousel-container" id="carousel">
+       
+      <!-- Slide 1 -->
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=600&fit=crop" alt="Banner 1">
+        <div class="carousel-overlay"></div>
+        <div class="carousel-content">
+          <h2 class="carousel-title">Welcome to Excellence</h2>
+          <p class="carousel-subtitle">Discover innovative solutions for your business needs</p>
+          <a href="#" class="carousel-btn">Get Started →</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-slide">
+        <img src="./assets/Banner2.jpg" alt="Banner 2">
+        <div class="carousel-overlay"></div>
+        <div class="carousel-content">
+          <h2 class="carousel-title">Premium Quality Service</h2>
+          <p class="carousel-subtitle">Experience the difference with our world-class offerings</p>
+          <a href="#" class="carousel-btn">Learn More →</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1200&h=600&fit=crop" alt="Banner 3">
+        <div class="carousel-overlay"></div>
+        <div class="carousel-content">
+          <h2 class="carousel-title">Grow Your Business</h2>
+          <p class="carousel-subtitle">Transform your vision into reality with our expert team</p>
+          <a href="#" class="carousel-btn">Explore →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="carousel-dots">
+      <button type="button" onclick="goToSlide(0)" class="carousel-dot active"></button>
+      <button type="button" onclick="goToSlide(1)" class="carousel-dot"></button>
+      <button type="button" onclick="goToSlide(2)" class="carousel-dot"></button>
+    </div>
+
+    <!-- Arrow Controls -->
+    <button type="button" onclick="prevSlide()" class="carousel-arrow left-4">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
+    <button type="button" onclick="nextSlide()" class="carousel-arrow right-4">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+   
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container mx-auto px-4">
+      <div class="about-grid">
+        <div class="about-content">
+          <h2>About Our Company</h2>
+          <p>We are a leading manufacturer of marine and diesel engines with a global presence spanning over three decades. Our commitment to innovation, quality, and reliability has made us the trusted choice for industrial applications worldwide.</p>
+          <p>From marine propulsion systems to commercial vehicle engines, we deliver cutting-edge solutions that power the world's industries. Our state-of-the-art manufacturing facilities and dedicated R&D team ensure we stay at the forefront of technology.</p>
+          <a href="#" class="carousel-btn">Learn More About Us →</a>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop" alt="Company">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="stat-card">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50K+</div>
+          <div class="stat-label">Engines Deployed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Countries Served</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">99%</div>
+          <div class="stat-label">Customer Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section id="products" class="product-section">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title">Our Products</h2>
+      <p class="section-subtitle">Comprehensive range of engines and components for every application</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-image">🚢</div>
+          <div class="product-info">
+            <h3 class="product-title">Marine Propulsion</h3>
+            <p class="product-desc">High-efficiency engines designed for modern vessel propulsion</p>
+            <a href="#" class="product-link">View Details →</a>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-image">🚚</div>
+          <div class="product-info">
+            <h3 class="product-title">Truck Engines</h3>
+            <p class="product-desc">Powerful diesel engines for heavy-duty commercial transport</p>
+            <a href="#" class="product-link">View Details →</a>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-image">🚌</div>
+          <div class="product-info">
+            <h3 class="product-title">Bus Engines</h3>
+            <p class="product-desc">Reliable engines for commercial bus fleets and public transport</p>
+            <a href="#" class="product-link">View Details →</a>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-image">⚙️</div>
+          <div class="product-info">
+            <h3 class="product-title">Hydraulic Systems</h3>
+            <p class="product-desc">Complete hydraulic solutions for industrial applications</p>
+            <a href="#" class="product-link">View Details →</a>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+          <div class="product-image">🏗️</div>
+          <div class="product-info">
+            <h3 class="product-title">Construction Equipment</h3>
+            <p class="product-desc">Durable engines for construction and heavy machinery</p>
+            <a href="#" class="product-link">View Details →</a>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card">
+          <div class="product-image">⛏️</div>
+          <div class="product-info">
+            <h3 class="product-title">Mining Solutions</h3>
+            <p class="product-desc">Robust engines for mining and extraction operations</p>
+            <a href="#" class="product-link">View Details →</a>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card">
+          <div class="product-image">🌾</div>
+          <div class="product-info">
+            <h3 class="product-title">Agricultural Engines</h3>
+            <p class="product-desc">Efficient engines for modern farming and agricultural use</p>
+            <a href="#" class="product-link">View Details →</a>
+          </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card">
+          <div class="product-image">🔧</div>
+          <div class="product-info">
+            <h3 class="product-title">Spare Parts</h3>
+            <p class="product-desc">Genuine parts and service components for all products</p>
+            <a href="#" class="product-link">View Details →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <!-- Company Info -->
+        <div>
+          <h4>About Company</h4>
+          <p class="text-sm text-gray-400 mb-4">Leading manufacturer of marine and diesel engines with global presence</p>
+          <div class="flex gap-4">
+            <a href="#" class="text-gray-400 hover:text-primary transition text-sm">f</a>
+            <a href="#" class="text-gray-400 hover:text-primary transition text-sm">t</a>
+            <a href="#" class="text-gray-400 hover:text-primary transition text-sm">in</a>
+          </div>
+        </div>
+
+        <!-- Products -->
+        <div>
+          <h4>Products</h4>
+          <a href="#" class="footer-link">Marine Engines</a>
+          <a href="#" class="footer-link">Commercial Vehicles</a>
+          <a href="#" class="footer-link">Off Highway</a>
+          <a href="#" class="footer-link">Components</a>
+          <a href="#" class="footer-link">Spare Parts</a>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h4>Resources</h4>
+          <a href="#" class="footer-link">Downloads</a>
+          <a href="#" class="footer-link">News & Events</a>
+          <a href="#" class="footer-link">Blogs</a>
+          <a href="#" class="footer-link">Our Network</a>
+          <a href="#" class="footer-link">Careers</a>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4>Get In Touch</h4>
+          <a href="#" class="footer-link">📞 +91 (123) 456-7890</a>
+          <a href="#" class="footer-link">✉️ apdynamics.com</a>
+          <a href="#" class="footer-link">📍 Industrial Area, pune</a>
+          <a href="#" class="footer-link">Contact Form</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 AP DYNAMICS Industries. All rights reserved. | <a href="#" class="text-primary">Privacy Policy</a> | <a href="#" class="text-primary">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
